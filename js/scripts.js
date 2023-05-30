@@ -22,4 +22,16 @@ function newItem() {
   li.on("dblclick", function crossOut() {
     li.toggleClass("strike"); //toggle the strike class on and off
   });
+  //3. Adding a delete button
+  let crossOutButton = $("<crossOutButton></crossOutButton>"); //new button element created and assigned to a variable
+  crossOutButton.append(document.createTextNode("X")); //creates the text "X"
+  li.append(crossOutButton); //appends the button to the li element
+
+  crossOutButton.on("click", deleteListItem); //eventListener, using another nested function
+  function deleteListItem() {
+    //nested function to delete the item by adding the delete class
+    li.addClass("delete");
+  }
+
+  $("#list").sortable(); //adds the sorting functionality
 }
