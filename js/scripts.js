@@ -12,4 +12,14 @@ function newItem() {
   } else {
     $("#list").append(li); //if not empty, append li to the ordered list
   }
+
+  //2. Crossing an item out:
+  function crossOut() {
+    //nested function within the newItem function
+    li.toggleClass("strike");
+  }
+
+  li.on("dblclick", function crossOut() {
+    li.toggleClass("strike"); //toggle the strike class on and off
+  });
 }
